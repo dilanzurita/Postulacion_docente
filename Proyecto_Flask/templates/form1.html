@@ -5,38 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Sitio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .navbar-nav .nav-link:hover {
+            border-radius: 10px;
+    background-color: #3fc44a; /* Cambia el color de fondo al que desees */
+    color: #000000; /* Cambia el color de texto al que desees */
+}
+    </style>
 </head>
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-success bg-success">
         <div class="container">
-            <a class="navbar-brand" href="#"></a> <!--Si se desea algun texto colocarllo aqui-->
+            <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Personal</a>
+                        <a class="nav-link text-light" href="#">Personal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Academia</a>
+                        <a class="nav-link text-light" href="#">Academia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Trayectoria</a>
+                        <a class="nav-link text-light" href="#">Trayectoria</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Capacitacion</a>
+                        <a class="nav-link text-light" href="#">Capacitacion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Publicaciones</a>
+                        <a class="nav-link text-light" href="#">Publicaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accion informativa</a>
+                        <a class="nav-link text-light" href="#">Accion informativa</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
 
     <div class="container mt-4">
         <!-- Seccion informacion personal -->
@@ -313,5 +323,6 @@
             });
         })();
     </script>
+    
 </body>
 </html>
