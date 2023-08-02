@@ -7099,7 +7099,8 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #5a5c69 !important;
+  background-color: #344675 !important;
+  /*fff 344675  222a42*/
 }
 
 a.bg-dark:hover,
@@ -7111,10 +7112,6 @@ button.bg-dark:focus {
 
 .bg-white {
   background-color: #fff !important;
-  /*fff 344675  222a42*/
-}
-.bg-dark {
-  background-color: #344675 !important;
   /*fff 344675  222a42*/
 }
 
@@ -12108,13 +12105,13 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  background: url("../img/portada.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+  background: url("../img/portada.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -13179,7 +13176,6 @@ a.badge-darker.focus {
 /* Styles for the dark version */
 body.dark-content {
   background: #222a42;
-  color: #ffffff;
 }
 
 .dark-content .navbar.navbar-transparent .navbar-brand {
@@ -13543,19 +13539,22 @@ body.dark-content {
   background: #cccccc;
 }
 
-.dark-content .text-gray-800  {
-  color: #fff !important;
-}
-.dark-content .text-gray-600  {
+.dark-content .text-gray-800 {
   color: #fff !important;
 }
 
+.dark-content .text-gray-600 {
+  color: #fff !important;
+}
 
 
-.dark-content .navbar,
-.dark-content .navbar-expand .navbar-nav .nav-link,
-.dark-content .navbar-light .navbar-nav .nav-link {
-  color: #ffffff;
+.divider {
+  border-top: 1px solid #9a9a9a;
+}
+
+
+.dark-content .divider {
+  border-top: 1px solid #eaecf4;
 }
 
 .dark-content .topbar-divider {
@@ -13569,7 +13568,7 @@ body.dark-content {
 
 .dark-content .form-control {
   background-color: #444c6f;
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
   color: #222a42;
 }
 
@@ -13733,4 +13732,12 @@ body.dark-content {
 
 .dark-content .nav-pills .nav-item .nav-link:not(.active):hover {
   background-color: #cccccc;
+}
+
+.dark-content .text-gray-800 {
+  color: #fff !important;
+}
+
+.dark-content .text-gray-600 {
+  color: #fff !important;
 }
