@@ -39,177 +39,238 @@
     </nav>
 
     <div class="container mt-4">
-        <h1>Información Personal</h1>
-        <form id="infoPersonalForm" novalidate>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label for="tratamiento" class="form-label">Tratamiento:</label>
-                    <select class="form-select" id="tratamiento" name="tratamiento" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="sr">Sr.</option>
-                        <option value="sra">Sra.</option>
-                        <option value="srta">Srta.</option>
-                    </select>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor selecciona un tratamiento.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="tipoDocumento" class="form-label">Tipo de documento:</label>
-                    <select class="form-select" id="tipoDocumento" name="tipoDocumento" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="Cedula">Cedula</option>
-                        <option value="Pasaporte">Pasaporte</option>
-                    </select>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor selecciona el tipo de documento.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="apmaterno" class="form-label">Número de Documento:</label>
-                    <input type="text" class="form-control" id="apmaterno" name="apmaterno" required>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor ingresa el número de documento.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="archivo_pdf" class="form-label">Subir archivo PDF</label>
-                    <input type="file" class="form-control-file" id="archivo_pdf" name="archivo_pdf">
-                </div>
+        <!-- Seccion informacion personal -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="d-flex justify-content-between align-items-center">
+                    Información personal
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#infoPersonal" aria-expanded="false" aria-controls="infoPersonal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                        </svg>
+                    </button>
+                </h1>
             </div>
+        </div>
+        <div class="collapse show" id="infoPersonal">
+            <form id="infoPersonalForm" novalidate>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="tratamiento" class="form-label">Tratamiento:</label>
+                        <select class="form-select" id="tratamiento" name="tratamiento" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="sr">Sr.</option>
+                            <option value="sra">Sra.</option>
+                            <option value="srta">Srta.</option>
+                        </select>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor selecciona un tratamiento.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="tipoDocumento" class="form-label">Tipo de documento:</label>
+                        <select class="form-select" id="tipoDocumento" name="tipoDocumento" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="Cedula">Cedula</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor selecciona el tipo de documento.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="apmaterno" class="form-label">Número de Documento:</label>
+                        <input type="text" class="form-control" id="apmaterno" name="apmaterno" required>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor ingresa el número de documento.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="archivo_pdf" class="form-label">Subir archivo PDF</label>
+                        <input type="file" class="form-control-file" id="archivo_pdf" name="archivo_pdf">
+                    </div>
+                </div>
+            </form>
+        </div>
 
-            <!-- Información Adicional -->
-            <h1>Información adicional</h1>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label for="sexo" class="form-label">Sexo:</label>
-                    <select class="form-select" id="sexo" name="sexo" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="Hombre">Hombre</option>
-                        <option value="Mujer">Mujer</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor selecciona el sexo.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="estadoCivil" class="form-label">Estado civil</label>
-                    <select class="form-select" id="estadoCivil" name="estadoCivil" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="Soltero">Soltero</option>
-                        <option value="Union de hecho">Union de hecho</option>
-                        <option value="Casado">Casado</option>
-                        <option value="Divorciado">Divorciado</option>
-                        <option value="Viudo">Viudo</option>
-                    </select>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor selecciona el estado civil.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="etnia" class="form-label">Etnia:</label>
-                    <select class="form-select" id="etnia" name="etnia" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="Meztiza">Meztiza</option>
-                        <option value="Montubia">Montubia</option>
-                        <option value="Blanca">Blanca</option>
-                    </select>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor selecciona la etnia.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="indigenas" class="form-label">Nacionalidades indígenas:</label>
-                    <select class="form-select" id="indigenas" name="indigenas" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option value="Ninguna">Ninguna</option>
-                        <option value="Awa">Awa</option>
-                        <option value="Secoya">Secoya</option>
-                        <option value="Tsachila">Tsachila</option>
-                        <option value="Achuar">Achuar</option>
-                        <option value="Waorani">Waorani</option>
-                    </select>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor selecciona una nacionalidad indígena.
-                    </div>
-                </div>
+        <!-- Seccion información adicional -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="d-flex justify-content-between align-items-center">
+                    Información adicional
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#infoAdicional" aria-expanded="false" aria-controls="infoAdicional">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                        </svg>
+                    </button>
+                </h1>
             </div>
+        </div>
+        <div class="collapse show" id="infoAdicional">
+            <form id="infoAdicionalForm" novalidate>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="sexo" class="form-label">Sexo:</label>
+                        <select class="form-select" id="sexo" name="sexo" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="Hombre">Hombre</option>
+                            <option value="Mujer">Mujer</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor selecciona el sexo.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="estadoCivil" class="form-label">Estado civil</label>
+                        <select class="form-select" id="estadoCivil" name="estadoCivil" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="Soltero">Soltero</option>
+                            <option value="Union de hecho">Union de hecho</option>
+                            <option value="Casado">Casado</option>
+                            <option value="Divorciado">Divorciado</option>
+                            <option value="Viudo">Viudo</option>
+                        </select>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor selecciona el estado civil.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="etnia" class="form-label">Etnia:</label>
+                        <select class="form-select" id="etnia" name="etnia" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="Meztiza">Meztiza</option>
+                            <option value="Montubia">Montubia</option>
+                            <option value="Blanca">Blanca</option>
+                        </select>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor selecciona la etnia.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="indigenas" class="form-label">Nacionalidades indígenas:</label>
+                        <select class="form-select" id="indigenas" name="indigenas" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="Ninguna">Ninguna</option>
+                            <option value="Awa">Awa</option>
+                            <option value="Secoya">Secoya</option>
+                            <option value="Tsachila">Tsachila</option>
+                            <option value="Achuar">Achuar</option>
+                            <option value="Waorani">Waorani</option>
+                        </select>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor selecciona una nacionalidad indígena.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-            <!-- Información del Domicilio -->
-            <h1>Información del domicilio</h1>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="direccion" class="form-label">Dirección:</label>
-                    <textarea class="form-control" id="direccion" name="direccion" required></textarea>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor ingresa la dirección.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="telefonoDomicilio" class="form-label">Teléfono del domicilio:</label>
-                    <input type="text" class="form-control" id="telefonoDomicilio" name="telefonoDomicilio" required>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor ingresa el teléfono del domicilio.
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="celular" class="form-label">Celular:</label>
-                    <input type="text" class="form-control" id="celular" name="celular" required>
-                    <div class="valid-feedback">
-                        ¡Correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                        Por favor ingresa el número de celular.
-                    </div>
-                </div>
+        <!-- Seccion información del domicilio -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="d-flex justify-content-between align-items-center">
+                    Información del domicilio
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#infoDomicilio" aria-expanded="false" aria-controls="infoDomicilio">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                        </svg>
+                    </button>
+                </h1>
             </div>
-
-            <!-- Información Profesional -->
-            <h1>Información profesional</h1>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="perfilprof" class="form-label">Perfil profesional:</label>
-                    <textarea class="form-control" id="perfilprof" name="perfilprof" required></textarea>
-                    <div class="valid-feedback">
-                        ¡Correcto!
+        </div>
+        <div class="collapse show" id="infoDomicilio">
+            <form id="infoDomicilioForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="direccion" class="form-label">Dirección:</label>
+                        <textarea class="form-control" id="direccion" name="direccion" required></textarea>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor ingresa la dirección.
+                        </div>
                     </div>
-                    <div class="invalid-feedback">
-                        Por favor ingresa el perfil profesional.
+                    <div class="col-md-3 mb-3">
+                        <label for="telefonoDomicilio" class="form-label">Teléfono del domicilio:</label>
+                        <input type="text" class="form-control" id="telefonoDomicilio" name="telefonoDomicilio" required>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor ingresa el teléfono del domicilio.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="celular" class="form-label">Celular:</label>
+                        <input type="text" class="form-control" id="celular" name="celular" required>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor ingresa el número de celular.
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Guardar</button>
-        </form>
+        <!-- Seccion información profesional -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="d-flex justify-content-between align-items-center">
+                    Información profesional
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#infoProfesional" aria-expanded="false" aria-controls="infoProfesional">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                        </svg>
+                    </button>
+                </h1>
+            </div>
+        </div>
+        <div class="collapse show" id="infoProfesional">
+            <form id="infoProfesionalForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="perfilprof" class="form-label">Perfil profesional:</label>
+                        <textarea class="form-control" id="perfilprof" name="perfilprof" required></textarea>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor ingresa el perfil profesional.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary mt-3" id="guardarBtn">Guardar</button>
+        </div>
     </div>
+    <br>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -217,20 +278,20 @@
         (function () {
             'use strict';
 
-            // Seleccionar el formulario
-            const form = document.getElementById('infoPersonalForm');
+            const forms = document.querySelectorAll('form');
 
-            // Agregar evento para prevenir el envío del formulario si hay campos inválidos
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
+            forms.forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
 
-            // Agregar eventos para mostrar los mensajes de validación mientras se escribe
-            const formControls = form.querySelectorAll('.form-control');
+            const formControls = document.querySelectorAll('.form-control');
+
             formControls.forEach(function (control) {
                 control.addEventListener('input', function () {
                     if (control.checkValidity()) {
@@ -240,6 +301,14 @@
                         control.classList.add('is-invalid');
                         control.classList.remove('is-valid');
                     }
+                });
+            });
+
+            const guardarBtn = document.getElementById('guardarBtn');
+
+            guardarBtn.addEventListener('click', function () {
+                forms.forEach(function (form) {
+                    form.classList.add('was-validated');
                 });
             });
         })();
