@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, jsonify, session
 from flask_session import Session
 import psycopg2
 import bcrypt
+import os
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -20,14 +21,10 @@ postgres_connection = {
 }
 
 # Configuración de la base de datos MongoDB
-# mongo_client = MongoClient('localhost', 27017)
-# mongo_db = mongo_client['registro']
-# mongo_collection = mongo_db['usuario']
+mongo_client = MongoClient('localhost', 27017)
+mongo_db = mongo_client['registro']
+mongo_collection = mongo_db['archivos_pdf']
 
-
-# @app.route('/')
-# def index():
-#     return render_template('form1.html')
 
 
 @app.route('/')
@@ -108,6 +105,59 @@ def procesar_formulario():
     #     print(f"Error al insertar en MongoDB: {e}")
 
     return redirect('/')
+
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if 'cv' in request.files:
+        cv_file = request.files['cv']
+        save_file_to_mongodb(cv_file)
+
+    if 'icedula' in request.files:
+        icedula_file = request.files['icedula']
+        save_file_to_mongodb(icedula_file)
+
+    if 'cvotacion' in request.files:
+        icedula_file = request.files['cvotacion']
+        save_file_to_mongodb(icedula_file)
+
+    if 'cacademico' in request.files:
+        icedula_file = request.files['cacademico']
+        save_file_to_mongodb(icedula_file)
+
+    if 'claboral' in request.files:
+        icedula_file = request.files['claboral']
+        save_file_to_mongodb(icedula_file)
+
+    if 'ilegal' in request.files:
+        icedula_file = request.files['ilegal']
+        save_file_to_mongodb(icedula_file)
+
+    if 'noResponsabilidades' in request.files:
+        icedula_file = request.files['noResponsabilidades']
+        save_file_to_mongodb(icedula_file)
+
+    if 'celaboral' in request.files:
+        icedula_file = request.files['celaboral']
+        save_file_to_mongodb(icedula_file)
+
+    # Repeat the same process for other file inputs (cvotacion, cacademico, claboral, ilegal, celaboral, etc.)
+
+    return redirect('/documentacion')
+
+
+def save_file_to_mongodb(file):
+    try:
+        # Read the file data
+        file_data = file.read()
+        # Get the file name
+        file_name = file.filename
+        # Save the file to MongoDB
+        mongo_collection.insert_one({'file_name': file_name, 'file_data': file_data})
+    except Exception as e:
+        print(f"Error al insertar en MongoDB: {e}")
+
 
 
 if __name__ == '__main__':

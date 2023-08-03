@@ -1,0 +1,23 @@
+version: '3'
+services:
+  pagina_postulacion:
+    image: postgres
+    container_name: pagina_postulacion
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "admin"
+    volumes:
+    - ./DB/postgres:/var/lib/postgresql/data
+    cpus: 0.5
+    mem_limit: 512m
+
+  pagina_postulacion_mongo:
+    image: mongo
+    container_name: pagina_postulacion_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./DB/mongo/db:/data/db
+    cpus: 0.5
+    mem_limit: 512m
