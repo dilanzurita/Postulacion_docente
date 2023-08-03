@@ -1,8 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, jsonify, session
+from flask_session import Session
 import psycopg2
+import bcrypt
 from pymongo import MongoClient
 
 app = Flask(__name__)
+
+# Configuración de la extensión Flask-Session
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 # Configuración de la base de datos PostgreSQL
 postgres_connection = {
@@ -23,46 +30,64 @@ postgres_connection = {
 #     return render_template('form1.html')
 
 
-@app.route('/') #, methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    # if request.method == 'POST':
-    #     ci = request.form['ci']
-    #     # Use the 'ci' variable to fetch data from your API (here we are using the sample_data)
-    #     # Replace 'sample_data' with your API call to fetch real data
-    #     data = sample_data
-    #     return jsonify(data)  # Return the JSON data to be processed by JavaScript
-    return render_template('index.html')
+    return render_template('login.html')
 
 @app.route('/documentacion')
 def documentacion():
-    return render_template('html/documentacion.html')
+    return render_template('documentacion.html')
 
 @app.route('/infoPersonal')
 def infoPersonal():
-    return render_template('html/informacion-personal.html')
-
-@app.route('/login')
-def login():
-    return render_template('html/login.html')
+    return render_template('informacion-personal.html')
 
 @app.route('/register')
 def register():
-    return render_template('html/register.html')
+    return render_template('register.html')
 
 @app.route('/verificar')
 def verificar():
     return render_template('html/verificar.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
+@app.route('/login', methods=['POST'])
+def login():
+    # Obtener los datos del formulario
+    email = request.form['email']
+    contraseña = request.form['contraseña']
+
+    # Consultar en PostgreSQL si el usuario y la contraseña están registrados
+    try:
+        connection = psycopg2.connect(**postgres_connection)
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM registro WHERE email=%s AND contraseña=%s', (email, contraseña))
+        user_data = cursor.fetchone()
+        connection.close()
+
+        if user_data:
+            # Los datos son correctos, redirigir a la página de inicio
+            return redirect('/dashboard')
+        else:
+            # Los datos son incorrectos, mostrar un mensaje de alerta
+            return render_template('login.html', error_message="Usuario o contraseña incorrectos")
+    except psycopg2.Error as e:
+        print(f"Error al consultar en PostgreSQL: {e}")
+        # Mostrar un mensaje de alerta en caso de error en la consulta
+        return render_template('login.html', error_message="Error en el servidor")
 
 
 @app.route('/procesar', methods=['POST'])
 def procesar_formulario():
     # Obtener los datos del formulario
-    identificacion = request.form['id']
-    nombres = request.form['nombre']
-    apellidos = request.form['apellido']
-    mail = request.form['mail']
+    num_identificacion = request.form['num_identificacion']
+    nombres = request.form['nombres']
+    apellido_paterno = request.form['apellido_paterno']
+    apellido_materno = request.form['apellido_materno']
+    email = request.form['email']
     contraseña = request.form['contraseña']
     
 
@@ -70,7 +95,7 @@ def procesar_formulario():
     try:
         connection = psycopg2.connect(**postgres_connection)
         cursor = connection.cursor()
-        cursor.execute('INSERT INTO registro (identificacion, nombres, apellidos, mail, contraseña ) VALUES (%s, %s, %s, %s, %s)', (identificacion, nombres, apellidos, mail, contraseña))
+        cursor.execute('INSERT INTO registro (num_identificacion, nombres, apellido_paterno, apellido_materno, email, contraseña ) VALUES (%s, %s, %s, %s, %s, %s)', (num_identificacion, nombres, apellido_paterno, apellido_materno, email, contraseña))
         connection.commit()
         connection.close()
     except psycopg2.Error as e:
@@ -82,7 +107,7 @@ def procesar_formulario():
     # except Exception as e:
     #     print(f"Error al insertar en MongoDB: {e}")
 
-    return "Datos guardados correctamente"
+    return redirect('/')
 
 
 if __name__ == '__main__':

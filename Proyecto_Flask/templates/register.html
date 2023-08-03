@@ -33,7 +33,7 @@
                             <center>
                                 <h1 class="mb-4">Formulario de Registro</h1>
                             </center>
-                            <form id="registroForm" enctype="multipart/form-data">
+                            <form id="registroForm" enctype="multipart/form-data" action="/procesar" method="post">
                                 <div></div>
                                 <div class="form-group">
                                     <label for="tipo_identificacion">Tipo de
@@ -77,38 +77,26 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="contrasena">Contraseña:</label>
-                                    <input type="password" class="form-control" name="contrasena" id="contrasena"
+                                    <input type="password" class="form-control" name="contraseña" id="contraseña"
                                         required>
                                     <p id="errorContrasena"></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="confirmar_contrasena">Confirmar
                                         Contraseña:</label>
-                                    <input type="password" class="form-control" name="confirmar_contrasena"
-                                        id="confirmar_contrasena" required>
+                                    <input type="password" class="form-control" name="contraseña"
+                                        id="contraseña" required>
                                     <p id="errorConfirmarContrasena"></p>
                                 </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <!-- Utiliza la clase "col-md-6" para que ocupe la mitad de la pantalla en dispositivos medianos y más grandes -->
-                        <div style="text-align: left;">
-                            <br><br><br><br><br>
-                            <center>
-                                <h3 class="mb-4 text-dark">Subir
-                                    Imagen</h3>
-                            </center>
-                            <div class="form-group">
-                                <input type="file" class="form-control-file" name="imagen" id="imagen">
-                            </div>
-                        </div>
-                    </div>
+
                     <div id="errorMessageDiv" class="alert alert-danger mt-4" style="display: none;"></div>
                 </div>
                 <br><br>
                 <center>
                     <div class="mb-4">
-                        <a href="{{ url_for('login') }}" class="btn btn-success mr-2">Volver</a>
+                        <a href="/login" class="btn btn-success mr-2">Volver</a>
                         <button type="submit" class="btn btn-success">Registrar</button>
                     </div>
                 </center>
@@ -130,24 +118,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
-
-
-
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Retrieve the stored data from the session storage
-            const personInfo = JSON.parse(sessionStorage.getItem('personInfo'));
-
-            // Fill the form fields with the retrieved data
-            document.getElementById('tipo_identificacion').value = 'Cédula'; // Assuming it's always cedula
-            document.getElementById('num_identificacion').value = personInfo ? .Identificación || '';
-            document.getElementById('nombres').value = personInfo ? .Nombres || '';
-            document.getElementById('apellido_paterno').value = ''; // Add the appropriate field value
-            document.getElementById('apellido_materno').value = ''; // Add the appropriate field value
-        });
-    </script> -->
-
 
 </body>
 
